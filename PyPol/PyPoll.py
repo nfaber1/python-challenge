@@ -2,7 +2,7 @@ import os
 import csv
 
 # create csv path
-csvpath = ('election_data.csv')
+csvpath = os.path.join('.', 'Resources','election_data.csv')
 
 with open(csvpath) as csvfile:
 
@@ -16,6 +16,14 @@ with open(csvpath) as csvfile:
 
     row_count1 = 0 
     candidate = ""
+    khan_percent = 0
+    khan_count = 0
+    correy_count = 0
+    correy_percent = 0
+    li_percent = 0
+    li_count = 0
+    OTooley_percent = 0
+    OTooley_count = 0
 
     for row in csvreader:
         row_count1 += 1
@@ -29,23 +37,41 @@ with open(csvpath) as csvfile:
 
     for row in csvreader:
         if candidate == "Khan":
-            
+            for row in csvreader == "Khan":
+               khan_count += 1
+            csvfile.seek(0)
+            next(csvreader)
+    khan_percent = (khan_count / 3521001) * 100
 
-    # Win percent can be found by dividing the the total wins by the total matches and multiplying by 100
-    #khan_percent = (khan_win / row_count1) * 100
+    for row in csvreader:
+        if candidate == "Correy":
+            for row in csvreader == "Correy":
+               correy_count += 1
+            csvfile.seek(0)
+            next(csvreader)
+    correy_percent = (correy_count / 3521001) * 100
 
-    # Loss percent can be found by dividing the total losses by the total matches and multiplying by 100
-    #loss_percent = (losses / total_matches) * 100
+    for row in csvreader:
+        if candidate == "Li":
+            for row in csvreader == "Li":
+               li_count += 1
+            csvfile.seek(0)
+            next(csvreader)
+    li_percent = (li_count / 3521001) * 100
 
-    # Draw percent can be found by dividing the total draws by the total matches and multiplying by 100
-    #draw_percent = (draws / total_matches) * 100
+    for row in csvreader:
+        if candidate == "O'Tooley":
+            for row in csvreader == "O'Tooley":
+               OTooley_count += 1
+            csvfile.seek(0)
+            next(csvreader)
+    OTooley_percent = (OTooley_count / 3521001) * 100
 
-
-    #print("Election Results")
-    #print(f"--------------------")
-    #print(f"Total Votes = {row_count1}")
-    #print(f"--------------------")
-    #print(f"Khan: %")
-    #print(f"Correy: %")
-    #print(f"Li: %")
-    #print(f"O'Tooley: %")
+    print("Election Results")
+    print(f"--------------------")  
+    print(f"Total Votes = {row_count1}")
+    print(f"--------------------")
+    print(f"Khan: {khan_percent}%")
+    print(f"Correy: {correy_percent}%")
+    print(f"Li: {li_percent}%")
+    print(f"O'Tooley: {OTooley_percent}%")
