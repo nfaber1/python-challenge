@@ -27,6 +27,10 @@ with open(csvpath) as csvfile:
     finPL = ""
     recent_Change = 0
     total_Change = 0
+    greatest_Profit = 0
+    greatest_Profit_Mon = 0
+    greatest_Loss = 0
+    greates_Loss_Mon = 0
 
     # row count
     for row in csvreader:
@@ -50,18 +54,19 @@ with open(csvpath) as csvfile:
             total_Change += recent_Change
             finPL = int(row[1])
     row_count += 1
-average_Change = tot_profit/(row_count-1)
 
     # greatest increase in profits
-
-    
+    if recent_Change > greatest_Profit:
+        greatest_Profit - recent_Change
+        greatest_Profit_Mon = str(row[0])
+    elif recent_Change < greatest_Loss:
+        greatest_Loss - recent_Change
+        greates_Loss_Mon = str(row[0])
+average_Change = tot_profit/(row_count-1)
     # print analysis
-#output_path = os.path.join("Analysis", "PyBankR.txt")
-#print("----------------------", file=txtfile)
+print("----------------------")
 print(f"Total Months: {row_count}")
-    #print(f"Total Months: {row_count}", file=txtfile)
 print(f"Total: ${profit}")
-print(f"Average Change: $ {total_Change}")
-    #print(f"Average Change: $ {total_Change}", file=txtfile)
-print(f"Greatest Increase in Profits: ")
-print(f"rijfneriugfnre")
+print(f"Average Change: {total_Change} %")
+print(f"Greatest Increase in Profits: {greatest_Profit_Mon} ${greatest_Profit}")
+print(f"Greatest Loss in Profits: {greates_Loss_Mon} ${greatest_Loss}")
